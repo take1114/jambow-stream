@@ -21,8 +21,7 @@ def reshape_recode(z):
     elif z > 60:
         m = z // 60
         s = (z % 60)//10
-        t = m+s
-        return t
+        return m,s
 st.title("個人記録表(ジャンボウポイント)")
 st.write("日本記録表(短水路)")
 df = pd.DataFrame({'Fr':['9.83','21.84','49.21','108.95','236.47','498.16','951.03'],
@@ -65,8 +64,13 @@ style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR
 
 #選択日本記録を抽出
 select_recode = float(df.at[distance,style])
-shape_recode = reshape_recode(select_recode)
-st.write(distance,style,"の日本記録は",shape_recode,"秒です")
+if select_recode < 60:
+    shape_recode = reshape_recode(select_recode)
+    st.write(distance,style,"の日本記録は",shape_recode,"秒です")
+elif select_recode >= 60:
+    shape_recode_m,shape_recode_s = reshape_recode(select_recode)
+    st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
+
 
 #自分の記録を入力
 time = st.number_input("貴方のタイムは？:")
