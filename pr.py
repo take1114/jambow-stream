@@ -52,7 +52,7 @@ st.scatter_chart(df2,x = "time",y = "point")
 style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
 #数字を整えたデータフレームとその散布図
 st.scatter_chart(Z,x = 'point',y = 'time')
-select_recode = float(df.at[distance,style])
+select_recode = df.at[distance,style]
 st.write(distance,style,"の日本記録は",select_recode,"秒です")
 
 #自分の記録を入力
