@@ -20,7 +20,7 @@ def reshape_recode(z):
         return z
     elif z > 60:
         m = int(z // 60)
-        s = (z % 60)//10
+        s = (z % 60)
         return m,s
 st.title("個人記録表(ジャンボウポイント)")
 st.write("日本記録表(短水路)")
