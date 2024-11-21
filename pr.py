@@ -14,6 +14,15 @@ def time_check(x):
 def point_check(y):
     return (-y+1000)/100
 
+#種目選択を可能にする調整
+def reshape_recode(z):
+    if z < 60:
+        return z
+    elif z > 60:
+        m = z // 60
+        s = (z % 60)//100
+        t = m+s
+        return t
 st.title("個人記録表(ジャンボウポイント)")
 st.write("日本記録表(短水路)")
 df = pd.DataFrame({'Fr':['9.83','21.84','49.21','1.48.95','3.56.47','8.18.16','15.51.03'],
@@ -43,17 +52,21 @@ X = pd.DataFrame(time_ex,index = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 Y = pd.DataFrame(point_ex,index = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25])
 Z = pd.concat([X,Y],axis=1)
 
-#with col1:
-#比較する日本記録を選択
-distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
+
+
 #対応表の散布図
 st.scatter_chart(df2,x = "time",y = "point")
-#with col2:
-style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
 #数字を整えたデータフレームとその散布図
 st.scatter_chart(Z,x = 'point',y = 'time')
-select_recode = df.at[distance,style]
-st.write(distance,style,"の日本記録は",select_recode,"秒です")
+
+#比較する日本記録を選択
+distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
+style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+
+#選択日本記録を抽出
+select_recode = float(df.at[distance,style])
+shape_recode = reshape_recode(select_recode)
+st.write(distance,style,"の日本記録は",shape_recode,"秒です")
 
 #自分の記録を入力
 time = st.number_input("貴方のタイムは？:")
