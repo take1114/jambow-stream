@@ -9,11 +9,11 @@ st.set_page_config(
 
 #精度向上ボタンで役立つ関数1
 def time_check(x):
-    return (x-21.84)/100#+0.34
+    return (x-21.84)+0.34
 
 #精度向上ボタンで役立つ関数2
 def point_check(y):
-    return (y-21.84)/100#(-y+1000)/100
+    return (-y+1000)/100
 
 #種目選択を可能にする調整
 def reshape_recode(z):
