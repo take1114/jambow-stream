@@ -9,11 +9,11 @@ st.set_page_config(
 
 #精度向上ボタンで役立つ関数1
 def time_check(x):
-    return x-21.84#+0.34
+    return (x-21.84)/100#+0.34
 
 #精度向上ボタンで役立つ関数2
 def point_check(y):
-    return y-21.84#(-y+1000)/100
+    return (y-21.84)/100#(-y+1000)/100
 
 #種目選択を可能にする調整
 def reshape_recode(z):
@@ -102,8 +102,8 @@ for i in range(0,26):
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
-y2 = (0.22*pow((x2-21.84),2))
-Y1 = (y2+21.84)
+y2 = (0.22*pow((x2-21.84)/100,2))
+Y1 = (y2+21.84)*100
 st.write(Y1,"秒")
 
 #単回帰分析結果－情報の精度か足りずいまいち
