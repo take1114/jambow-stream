@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+import datetime as dt
 
 st.set_page_config(
     page_title="ジャンボウサイト"
@@ -22,6 +23,14 @@ def reshape_recode(z):
         m = int(z // 60)
         s = round((z % 60),2)
         return m,s
+    
+def shape_rest(r):
+    if r < 60:
+        return r
+    elif r >= 60:
+        R = dt.timedelta(seconds = r)
+        return R
+
 st.title("個人記録表(ジャンボウポイント)")
 st.write("日本記録表(短水路)")
 df = pd.DataFrame({'Fr':['9.83','21.84','49.21','108.95','236.47','498.16','951.03'],
@@ -58,26 +67,26 @@ st.scatter_chart(df2,x = "time",y = "point")
 #数字を整えたデータフレームとその散布図
 st.scatter_chart(Z,x = 'point',y = 'time')
 
+#自分の記録を入力
+time = st.number_input("貴方のタイムは？:")
+
 #比較する日本記録を選択
 distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
 style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
 
 #選択日本記録を抽出
 select_recode = float(df.at[distance,style])
+rest = round((select_recode - time)*(-1),2)
+Rest = shape_rest(rest)
 if select_recode < 60:
     shape_recode = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode,"秒です")
+    st.write('日本記録：',shape_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest,'秒')
 elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
+    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest)
 
-
-#自分の記録を入力
-time = st.number_input("貴方のタイムは？:")
-
-rest = round((select_recode - time)*(-1),2)
-
-st.write('日本記録：',select_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',rest,'秒')
 st.write(df2)
 
 
