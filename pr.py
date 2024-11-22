@@ -67,8 +67,7 @@ st.scatter_chart(df2,x = "time",y = "point")
 #数字を整えたデータフレームとその散布図
 st.scatter_chart(Z,x = 'point',y = 'time')
 
-#自分の記録を入力
-time = st.number_input("貴方のタイムは？:")
+
 
 #比較する日本記録を選択
 distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
@@ -76,24 +75,25 @@ style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR
 
 #選択日本記録を抽出
 select_recode = float(df.at[distance,style])
-rest = round((select_recode - time)*(-1),2)
-Rest = shape_rest(rest)
+
 if select_recode < 60:
     shape_recode = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode,"秒です")
+    #自分の記録を入力
+    time = st.number_input("貴方のタイムは？:")
+    rest = round((select_recode - time)*(-1),2)
+    Rest = shape_rest(rest)
     st.write('日本記録：',shape_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest)
 elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
+    #自分の記録を入力
+    time = st.number_input("貴方のタイムは？:")
+    rest = round((select_recode - time)*(-1),2)
+    Rest = shape_rest(rest)
     st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,' 日本記録まであと',Rest)
 
 st.write(df2)
-
-
-
-
-
-
 
 #二次関数の係数を導出　y = a ** x a:の導出
 for i in range(0,26):
