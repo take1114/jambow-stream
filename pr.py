@@ -101,7 +101,7 @@ for i in range(0,26):
     a_round = round(a,2)
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
-x2 = st.number_input("pointを入力してください")
+x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
 y2 = (0.22*pow((-x2+1000)/100,2))
 Y1 = (y2+21.84)
 st.write(Y1,"秒")
