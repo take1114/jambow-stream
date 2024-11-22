@@ -95,9 +95,9 @@ st.write(df2)
 
 
 
-#二次関数の係数を導出　y = a ** x a:の導出
+#二次関数の係数を導出　y = a // x a:の導出
 for i in range(0,33):
-    a = round(float(X.iloc[i,0] / pow(Y.iloc[i,0],2)),3)
+    a = round(float((X.iloc[i,0]) * (Y.iloc[i,0]),3))
     a_round = round(a,2)
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
