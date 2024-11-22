@@ -13,7 +13,7 @@ def time_check(x):
 
 #精度向上ボタンで役立つ関数2
 def point_check(y):
-    return (-y+1000)/100
+    return y-21.84#(-y+1000)/100
 
 #種目選択を可能にする調整
 def reshape_recode(z):
