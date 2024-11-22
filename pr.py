@@ -103,8 +103,8 @@ for i in range(0,26):
 
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
 y2 = (0.22*pow((x2-21.84)/100,2))
-Y1 = (y2*100)+21.84
-st.write(Y1,"秒")
+#Y1 = (y2*100)+21.84
+st.write(y2,"秒")
 
 #単回帰分析結果－情報の精度か足りずいまいち
 model_lr = LinearRegression()
