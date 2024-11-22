@@ -9,7 +9,7 @@ st.set_page_config(
 
 #精度向上ボタンで役立つ関数1
 def time_check(x):
-    return (x-21.84)+0.34
+    return (x-21.84)
 
 #精度向上ボタンで役立つ関数2
 def point_check(y):
@@ -105,7 +105,7 @@ for i in range(0,26):
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
 y2 = (0.22*pow((-x2+1000)/100,2))
 #Y1 = (y2*100)+21.84
-Y1 = round((y2+21.84)-0.34,2)
+Y1 = round((y2+21.84),2)
 st.write(Y1,"秒")
 
 #単回帰分析結果－情報の精度か足りずいまいち
