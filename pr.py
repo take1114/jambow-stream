@@ -102,8 +102,8 @@ for i in range(0,26):
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
-y2 = (0.01*pow((x2-21.84)/100,2))
-#Y1 = (y2*100)+21.84
+y2 = (0.23*pow((x2-21.84)/100,2))
+Y1 = (y2*100)+21.84
 st.write(y2,"秒")
 
 #単回帰分析結果－情報の精度か足りずいまいち
