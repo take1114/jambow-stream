@@ -13,7 +13,7 @@ def time_check(x):
 
 #精度向上ボタンで役立つ関数2
 def point_check(y):
-    return (-y+1000)/100
+    return y-21.84#(-y+1000)/100
 
 #種目選択を可能にする調整
 def reshape_recode(z):
@@ -102,7 +102,7 @@ for i in range(0,26):
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
-y2 = (0.22*pow((-x2+1000)/100,2))
+y2 = (0.22*pow((x2-21.84),2))
 Y1 = (y2+21.84)
 st.write(Y1,"秒")
 
