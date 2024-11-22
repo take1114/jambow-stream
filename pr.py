@@ -81,11 +81,11 @@ Rest = shape_rest(rest)
 if select_recode < 60:
     shape_recode = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode,"秒です")
-    st.write('日本記録：',shape_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest,'秒')
+    st.write('日本記録：',shape_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest)
 elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
-    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest)
+    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,' 日本記録まであと',Rest)
 
 st.write(df2)
 
