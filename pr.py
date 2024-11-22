@@ -96,15 +96,21 @@ elif select_recode >= 60:
 st.write(df2)
 
 #二次関数の係数を導出　y = a ** x a:の導出
+#反比例　y = a/x a:の導出
 for i in range(0,26):
-    a = round(float(X.iloc[i,0] / pow(Y.iloc[i,0],2)),3)
+#    a = round(float(X.iloc[i,0] / pow(Y.iloc[i,0],2)),3)
+#    a_round = round(a,2)
+    a = round(float(X.iloc[i,0] * Y.iloc[i,0]),2)
     a_round = round(a,2)
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
+
 x2 = st.number_input("pointを入力してください(50m自由形のタイムを返します)")
-y2 = (0.22*pow((x2-21.84)/100,2))
-Y1 = (y2*100)+21.84
-st.write(y2,"秒")
+#y2 = (0.22*pow((-x2+1000)/100,2))
+#Y1 = (y2*100)+21.84
+y2 = 0.23 / x2
+Y1 = (y2+21.84)-0.34
+st.write(Y1,"秒")
 
 #単回帰分析結果－情報の精度か足りずいまいち
 model_lr = LinearRegression()
