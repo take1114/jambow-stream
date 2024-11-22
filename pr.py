@@ -97,9 +97,7 @@ elif select_recode >= 60:
 #二次関数の係数を導出　y = a ** x a:の導出
 #反比例　y = a/x a:の導出
 for i in range(0,26):
-#    a = round(float(X.iloc[i,0] / pow(Y.iloc[i,0],2)),3)
-#    a_round = round(a,2)
-    a = round(float(X.iloc[i,0] * Y.iloc[i,0]),2)
+    a = round(float(X.iloc[i,0] / pow(Y.iloc[i,0],2)),3)
     a_round = round(a,2)
     st.write(a,a_round,round(X.iloc[i,0],2),round(Y.iloc[i,0],2))
 
