@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import datetime as dt
+from openpyxl import load_workbook
+wb1 = load_workbook(filename="50m自由形.xlsx")
+sheet_names = wb1.sheetnames
+#print(sheet_names)
 
 st.set_page_config(
     page_title="ジャンボウサイト"
