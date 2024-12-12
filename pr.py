@@ -23,6 +23,10 @@ def shape_rest(r):
     elif r >= 60:
         R = dt.timedelta(seconds = r)
         return R
+    
+def point_get(t,nr):
+    p = ((nr/t)**3)*1000
+    return p
 
 st.title("個人記録表(ジャンボウポイント)")
 st.write("日本記録表(短水路)")
@@ -51,20 +55,22 @@ if select_recode < 60:
     st.write(distance,style,"の日本記録は",shape_recode,"秒です")
     #自分の記録を入力
     time = st.number_input("貴方のタイムは？:")
+    myPoint = point_get(time,select_recode)
     rest = round((select_recode - time)*(-1),2)
     Rest = shape_rest(rest)
     st.write('日本記録：',shape_recode,'秒')
-    st.write('貴方の記録：',time,'秒')
+    st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
     st.write('日本記録まであと',Rest,'秒')
 elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
     #自分の記録を入力
     time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
+    myPoint = point_get(time,select_recode)
     rest = round((select_recode - time)*(-1),2)
     Rest = shape_rest(rest)
     st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒')
-    st.write('貴方の記録：',time,'秒')
+    st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
     st.write('日本記録まであと',Rest,'秒')
 
 
