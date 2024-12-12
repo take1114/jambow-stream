@@ -76,7 +76,6 @@ if display_btn:
     rtp = math.pow(mypoint/1000,1/3)
     mytime = select_recode/rtp
     Y1 = (math.floor(mytime*100))/100
-    st.write(mytime,Y1)
     st.write(distance,style,'目指すタイムは',Y1,"秒")
 
 
