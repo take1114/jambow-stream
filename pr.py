@@ -69,7 +69,7 @@ rtp = math.pow(mypoint/1000,1/3)
 mytime = select_recode/rtp
 
 #Y1 = round(mytime,2)
-Y1 = math.floor((mytime*1000)/1000)
+Y1 = math.floor((mytime*100)/100)
 st.write(mytime,Y1)
 st.write(distance,style,Y1,"秒")
 
