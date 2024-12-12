@@ -80,9 +80,12 @@ if display_btn:
     rtp = math.pow(mypoint/1000,1/3)
     mytime = select_recode/rtp
     Y1 = (math.floor(mytime*100))/100
-    st.write(distance,style,'目指すタイムは',Y1,"秒")
-    rest = round((select_recode - time)*(-1),2)
-    Rest = shape_rest(rest)
-    st.write('日本記録まであと',Rest,'秒')
+    st.write(distance,style)
+    st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+    st.write("目標記録　:",Y1,"秒",mypoint,"ポイント")
+    st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
+    #rest = round((select_recode - time)*(-1),2)
+    #Rest = shape_rest(rest)
+    #st.write('日本記録まであと',Rest,'秒')
 
 
