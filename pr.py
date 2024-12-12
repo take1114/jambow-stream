@@ -53,7 +53,9 @@ if select_recode < 60:
     time = st.number_input("貴方のタイムは？:")
     rest = round((select_recode - time)*(-1),2)
     Rest = shape_rest(rest)
-    st.write('日本記録：',shape_recode,'秒,貴方の記録：',time,'秒、日本記録まであと',Rest)
+    st.write('日本記録：',shape_recode,'秒')
+    st.write('貴方の記録：',time,'秒')
+    st.write('日本記録まであと',Rest,'秒')
 elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
@@ -61,7 +63,9 @@ elif select_recode >= 60:
     time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
     rest = round((select_recode - time)*(-1),2)
     Rest = shape_rest(rest)
-    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,' 日本記録まであと',Rest)
+    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒')
+    st.write('貴方の記録：',time,'秒')
+    st.write('日本記録まであと',Rest,'秒')
 
 
 mypoint = st.number_input("pointを入力してください")
@@ -72,7 +76,7 @@ if display_btn:
     rtp = math.pow(mypoint/1000,1/3)
     mytime = select_recode/rtp
     #Y1 = round(mytime,2)
-    Y1 = math.floor((mytime*100)/100)
+    Y1 = (math.floor(mytime*100))/100
     st.write(mytime,Y1)
     st.write(distance,style,Y1,"秒")
 
