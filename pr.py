@@ -76,7 +76,7 @@ mypoint = st.number_input("目標pointを入力してください")
 
 display_btn = st.button("表示")
 if display_btn:
-
+    shape_recode = reshape_recode(select_recode)
     rtp = math.pow(mypoint/1000,1/3)
     mytime = select_recode/rtp
     Y1 = (math.floor(mytime*100))/100
