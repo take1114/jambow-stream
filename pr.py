@@ -67,9 +67,9 @@ elif select_recode >= 60:
 mypoint = st.number_input("pointを入力してください")
 rtp = math.pow(mypoint/1000,1/3)
 mytime = select_recode/rtp
-#Y1 = (y2*100)+21.84
-#Y1 = round((y2+21.84),2)
-Y1 = round(mytime,2)
+
+#Y1 = round(mytime,2)
+Y1 = math.floor((mytime*100)/100)
 st.write(distance,style,Y1,"秒")
 
 
