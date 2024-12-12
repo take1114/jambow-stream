@@ -47,39 +47,32 @@ st.dataframe(df)
 #比較する日本記録を選択
 distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
 style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
-
-#選択日本記録を抽出
-select_recode = float(df.at[distance,style])
-
-if select_recode < 60:
-    shape_recode = reshape_recode(select_recode)
-    st.write(distance,style,"の日本記録は",shape_recode,"秒です")
-    #自分の記録を入力
-    time = st.number_input("貴方のタイムは？:")
-    myPoint = point_get(time,select_recode)
-    rest = round((select_recode - time)*(-1),2)
-    Rest = shape_rest(rest)
-    st.write('日本記録：',shape_recode,'秒')
-    st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
-    st.write('日本記録まであと',Rest,'秒')
-elif select_recode >= 60:
-    shape_recode_m,shape_recode_s = reshape_recode(select_recode)
-    st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
-    #自分の記録を入力
-    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
-    myPoint = point_get(time,select_recode)
-    rest = round((select_recode - time)*(-1),2)
-    Rest = shape_rest(rest)
-    st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒')
-    st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
-    st.write('日本記録まであと',Rest,'秒')
-
-
+time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
 mypoint = st.number_input("目標pointを入力してください")
 
 display_btn = st.button("表示")
+#選択日本記録を抽出
+select_recode = float(df.at[distance,style])
 
 if display_btn:
+    if select_recode < 60:
+        shape_recode = reshape_recode(select_recode)
+        #自分の記録を入力
+        myPoint = point_get(time,select_recode)
+        rest = round((select_recode - time)*(-1),2)
+        Rest = shape_rest(rest)
+        st.write(distance,style,"の日本記録は",shape_recode,"秒です")
+        st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
+        st.write('日本記録まであと',Rest,'秒')
+    elif select_recode >= 60:
+        shape_recode_m,shape_recode_s = reshape_recode(select_recode)
+        #自分の記録を入力
+        myPoint = point_get(time,select_recode)
+        rest = round((select_recode - time)*(-1),2)
+        Rest = shape_rest(rest)
+        st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
+        st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
+        st.write('日本記録まであと',Rest,'秒')
     rtp = math.pow(mypoint/1000,1/3)
     mytime = select_recode/rtp
     Y1 = (math.floor(mytime*100))/100
