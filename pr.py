@@ -65,14 +65,14 @@ elif select_recode >= 60:
 
 
 mypoint = st.number_input("pointを入力してください")
-rtp = math.pow(mypoint/1000,1/3)
-mytime = select_recode/rtp
 
-#Y1 = round(mytime,2)
-Y1 = math.floor((mytime*100)/100)
 display_btn = st.button("表示")
 print(f"generate_button:{display_btn}")
 if display_btn:
+    rtp = math.pow(mypoint/1000,1/3)
+    mytime = select_recode/rtp
+    #Y1 = round(mytime,2)
+    Y1 = math.floor((mytime*100)/100)
     st.write(mytime,Y1)
     st.write(distance,style,Y1,"秒")
 
