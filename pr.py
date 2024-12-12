@@ -26,6 +26,7 @@ def shape_rest(r):
     
 def point_get(t,nr):
     p = ((nr/t)**3)*1000
+    P = math.floor(p)
     return p
 
 st.title("個人記録表(ジャンボウポイント)")
