@@ -58,7 +58,7 @@ elif select_recode >= 60:
     shape_recode_m,shape_recode_s = reshape_recode(select_recode)
     st.write(distance,style,"の日本記録は",shape_recode_m,'分',shape_recode_s,"秒です")
     #自分の記録を入力
-    time = st.number_input("貴方のタイムは？:")
+    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
     rest = round((select_recode - time)*(-1),2)
     Rest = shape_rest(rest)
     st.write('日本記録：',shape_recode_m,'分',shape_recode_s,'秒,貴方の記録：',time,' 日本記録まであと',Rest)
