@@ -70,7 +70,10 @@ mytime = select_recode/rtp
 
 #Y1 = round(mytime,2)
 Y1 = math.floor((mytime*100)/100)
-st.write(mytime,Y1)
-st.write(distance,style,Y1,"秒")
+display_btn = st.button("表示")
+print(f"generate_button:{display_btn}")
+if display_btn:
+    st.write(mytime,Y1)
+    st.write(distance,style,Y1,"秒")
 
 
