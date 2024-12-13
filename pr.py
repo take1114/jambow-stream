@@ -64,12 +64,13 @@ if result_btn:
         st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
     elif select_recode >= 60:
         shape_recode_m,shape_recode_s = reshape_recode(select_recode)
+        time_m,time_s = reshape_recode(time)
         #自分の記録を入力
         myPoint = point_get(time,select_recode)
         Maxpoint = point_get(select_recode,select_recode)
         st.write(distance,style)
         st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
-        st.write('貴方の記録：',time,'秒',myPoint,'ポイント')
+        st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 
 mypoint = st.number_input("目標pointを入力してください")
