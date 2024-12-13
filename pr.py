@@ -11,7 +11,8 @@ st.set_page_config(
 #タイム表示調整
 def reshape_recode(z):
     if z < 60:
-        return z
+        m = 0
+        return m,z
     elif z > 60:
         m = int(z // 60)
         s = round((z % 60),2)
