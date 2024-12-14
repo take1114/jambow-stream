@@ -46,8 +46,8 @@ with tab1:
         index = ['50m','100m','200m','400m','800m','1500m'])
     st.dataframe(df1)
     #比較する日本記録を選択
-    distance = st.selectbox("距離は？：",('50m','100m','200m','400m','800m','1500m'))
-    style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
+    style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     #選択日本記録を抽出
     select_recode = float(df1.at[distance,style])
     #持ちタイムを入力
