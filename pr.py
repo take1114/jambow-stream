@@ -29,7 +29,7 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
-tab3,tab2,tab1 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新"])
+tab1,tab2,tab3 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新"])
 with tab1:
     st.title("個人記録表(フィナポイント)")
     st.write("日本記録表(短水路)(単位：秒)")
@@ -102,7 +102,6 @@ with tab1:
             st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
-
 
 with tab2:
     st.title("個人記録表(ジャンボウポイント)")
