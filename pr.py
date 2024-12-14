@@ -73,7 +73,7 @@ with tab1:
             st.write(distance,style)
             st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
-    mypoint = st.number_input("目標pointを入力してください")
+    mypoint = st.number_input("目標ポイントを入力してください")
     display_btn = st.button("目標")
     if display_btn:
         if select_recode < 60:
