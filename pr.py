@@ -51,7 +51,7 @@ with tab1:
     #選択日本記録を抽出
     select_recode = float(df1.at[distance,style])
     #持ちタイムを入力
-    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
+    time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     result_btn = st.button("結果")
     if result_btn:
         if select_recode < 60:
