@@ -29,7 +29,7 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
-tab1,tab2,tab3 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新"])
+tab1,tab2,tab3 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新(現在作成中)"])
 with tab1:
     st.title("個人記録表(フィナポイント)")
     st.write("日本記録表(短水路)(単位：秒)")
@@ -182,14 +182,17 @@ with tab3:
     style = st.selectbox("種目？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     #持ちタイムを入力
     time = st.number_input("更新タイムは？:(例：1分40秒32→100.32と入力すること)")
-
-    masters_recode_btn = st.button("マスターズさらなる高みへ")
     japan_recode_btn = st.button("日本記録さらなる高みへ")
+    masters_recode_btn = st.button("マスターズさらなる高みへ")
+    
     if masters_recode_btn:
         #選択日本記録を抽出
-        df.at[distance,style] = st.session_state.time
+        df.at[distance,style] = time
+        st.write(df)
     elif japan_recode_btn:
         df1.at[distance,style] = time
+        st.write(df1)
+
 
 
 
