@@ -52,7 +52,7 @@ with tab1:
     select_recode = float(df1.at[distance,style])
     #持ちタイムを入力
     time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
-    result_btn = st.button("結果")
+    result_btn = st.button("現実")
     if result_btn:
         if select_recode < 60:
             #タイム表示調整
@@ -74,7 +74,7 @@ with tab1:
             st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
     mypoint = st.number_input("目標pointを入力してください")
-    display_btn = st.button("表示")
+    display_btn = st.button("目標")
     if display_btn:
         if select_recode < 60:
             #タイム表示調整
