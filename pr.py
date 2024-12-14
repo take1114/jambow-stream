@@ -187,7 +187,7 @@ with tab3:
     japan_recode_btn = st.button("日本記録さらなる高みへ")
     if masters_recode_btn:
         #選択日本記録を抽出
-        df.at[distance,style] = time
+        df.at[distance,style] = st.session_state.time
     elif japan_recode_btn:
         df1.at[distance,style] = time
 
