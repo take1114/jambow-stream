@@ -31,8 +31,8 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
-real_japan_btn = st.button("日本記録への道")
-if real_japan_btn:
+tab1,tab2 = st.tabs(["日本記録へいたる道","マスターズの頂"])
+with tab1:
     st.title("個人記録表(フィナポイント)")
     st.write("日本記録表(短水路)(単位：秒)")
     df1 = pd.DataFrame({'Fr':['20.95','46.22','101.29','216.87','453.78','865.95'],
@@ -73,10 +73,7 @@ if real_japan_btn:
             st.write(distance,style)
             st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
-
-
     mypoint = st.number_input("目標pointを入力してください")
-
     display_btn = st.button("表示")
     if display_btn:
         if select_recode < 60:
@@ -107,8 +104,8 @@ if real_japan_btn:
             st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
-masters_btn = st.button("マスターズの頂へいたる道")
-if masters_btn:
+
+with tab2:
     st.title("個人記録表(ジャンボウポイント)")
     st.write("マスターズ日本記録表(短水路)(単位：秒)")
     df = pd.DataFrame({'Fr':['9.83','21.84','49.21','108.95','236.47','498.16','951.03'],
@@ -123,7 +120,6 @@ if masters_btn:
         index = ['25m','50m','100m','200m','400m','800m','1500m']
         )
     st.dataframe(df)
-
     #比較する日本記録を選択
     distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
     style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
@@ -131,7 +127,6 @@ if masters_btn:
     select_recode = float(df.at[distance,style])
     #持ちタイムを入力
     time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
-
     result_btn = st.button("結果")
     if result_btn:
         if select_recode < 60:
@@ -153,10 +148,7 @@ if masters_btn:
             st.write(distance,style)
             st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
-
-
     mypoint = st.number_input("目標pointを入力してください")
-
     display_btn = st.button("表示")
     if display_btn:
         if select_recode < 60:
