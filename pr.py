@@ -29,10 +29,10 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
-#タイム更新関数
-def time_upgrade(DF,d,s,TM):
-    DF[d,s] = TM
-    return DF
+##タイム更新関数
+#def time_upgrade(DF,d,s,TM):
+#    DF[d,s] = TM
+#    return DF
 
 
 tab1,tab2,tab3 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新(現在作成中)"])
