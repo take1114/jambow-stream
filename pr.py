@@ -29,6 +29,12 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
+#タイム更新関数
+def time_upgrade(DF,d,s,TM):
+    DF[d,s] = TM
+    return DF
+
+
 tab1,tab2,tab3 = st.tabs(["日本記録へいたる道","マスターズの頂","記録更新(現在作成中)"])
 with tab1:
     st.title("個人記録表(フィナポイント)")
@@ -181,7 +187,7 @@ with tab3:
     distance = st.selectbox("距離？：",('25m','50m','100m','200m','400m','800m','1500m'))
     style = st.selectbox("種目？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     #持ちタイムを入力
-    time = st.number_input("更新タイムは？:(例：1分40秒32→100.32と入力すること)")
+    Time = st.number_input("更新タイムは？:(例：1分40秒32→100.32と入力すること)")
     japan_recode_btn = st.button("日本記録さらなる高みへ")
     masters_recode_btn = st.button("マスターズさらなる高みへ")
     
