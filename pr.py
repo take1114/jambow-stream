@@ -196,7 +196,7 @@ with tab3:
         df.at[distance,style] = Time
         st.write(df)
     elif japan_recode_btn:
-        df1.at[distance,style] = time
+        df1.at[distance,style] = Time
         st.write(df1)
 
 
