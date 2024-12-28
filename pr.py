@@ -42,9 +42,9 @@ def Select_jrecode_style():
 def Select_mrecode_style():
     col1,col2 = st.columns(2)
     with col1:
-        distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
+        distance = st.selectbox("distance：",('25m','50m','100m','200m','400m','800m','1500m'))
     with col2:
-        style2 = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+        style2 = st.selectbox("style：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     return distance,style2
 
 #比較するチーム記録を選択
