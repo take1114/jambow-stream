@@ -30,12 +30,30 @@ def time_get(mp,sr):
     return Y1
 
 #比較する日本記録を選択
-def Select_recode_style():
+def Select_jrecode_style():
     col1,col2 = st.columns(2)
     with col1:
         distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
     with col2:
         style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    return distance,style
+
+#比較するマスターズ記録を選択
+def Select_mrecode_style():
+    col1,col2 = st.columns(2)
+    with col1:
+        distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
+    with col2:
+        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    return distance,style
+
+#比較するチーム記録を選択
+def Select_trecode_style():
+    col1,col2 = st.columns(2)
+    with col1:
+        distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
+    with col2:
+        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM'))
     return distance,style
 
 #自分の記録・ポイント、日本記録・ポイント表示
@@ -111,7 +129,7 @@ with tab1:
     st.dataframe(df1)
 
     #比較する日本記録を選択
-    distance,style = Select_recode_style()
+    distance,style = Select_jrecode_style()
 
     #選択日本記録を抽出
     select_recode = float(df1.at[distance,style])
@@ -149,9 +167,8 @@ with tab2:
         )
     st.dataframe(df)
 
-    #比較する日本記録を選択
-    distance = st.selectbox("距離は？：",('25m','50m','100m','200m','400m','800m','1500m'))
-    style = st.selectbox("種目は？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    #比較するマスターズ記録を選択
+    distance,style = Select_mrecode_style()
     
     #選択日本記録を抽出
     select_recode = float(df.at[distance,style])
@@ -184,9 +201,8 @@ with tab3:
         index = ['25m','50m','100m','200m','400m','800m','1500m'])
     st.dataframe(df3)
 
-    #比較する日本記録を選択
-    distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
-    style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM'))
+    #比較するteam記録を選択
+    distance,style = Select_trecode_style()
     
     #選択日本記録を抽出
     select_recode = float(df3.at[distance,style])
