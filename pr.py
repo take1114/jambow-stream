@@ -35,6 +35,29 @@ def Select_recode_style():
     style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     return distance,style
 
+#自分の記録・ポイント、日本記録・ポイント表示
+def real(sr,t):
+        if sr < 60:
+            #タイム表示調整
+            shape_recode = reshape_recode(sr)
+            #ポイントを取得
+            myPoint = point_get(t,sr)
+            Maxpoint = point_get(sr,sr)
+            st.write(distance,style)
+            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+            st.write('貴方の記録:',t,'秒',myPoint,'ポイント')
+        elif sr >= 60:
+            #タイム表示調整
+            shape_recode_m,shape_recode_s = reshape_recode(sr)
+            time_m,time_s = reshape_recode(t)
+            #ポイントを取得
+            myPoint = point_get(t,sr)
+            Maxpoint = point_get(sr,sr)
+            st.write(distance,style)
+            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+            st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
+
+
 
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へいたる道","マスターズの頂","ツキノワグマポイント","記録更新(現在作成中)"])
 with tab1:
@@ -52,8 +75,6 @@ with tab1:
         index = ['50m','100m','200m','400m','800m','1500m'])
     st.dataframe(df1)
     #比較する日本記録を選択
-    #distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
-    #style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     distance,style = Select_recode_style()
     #選択日本記録を抽出
     select_recode = float(df1.at[distance,style])
@@ -61,25 +82,26 @@ with tab1:
     time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     result_btn = st.button("現実")
     if result_btn:
-        if select_recode < 60:
-            #タイム表示調整
-            shape_recode = reshape_recode(select_recode)
-            #ポイントを取得
-            myPoint = point_get(time,select_recode)
-            Maxpoint = point_get(select_recode,select_recode)
-            st.write(distance,style)
-            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
-            st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
-        elif select_recode >= 60:
-            #タイム表示調整
-            shape_recode_m,shape_recode_s = reshape_recode(select_recode)
-            time_m,time_s = reshape_recode(time)
-            #ポイントを取得
-            myPoint = point_get(time,select_recode)
-            Maxpoint = point_get(select_recode,select_recode)
-            st.write(distance,style)
-            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
-            st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
+        #if select_recode < 60:
+        #    #タイム表示調整
+        #    shape_recode = reshape_recode(select_recode)
+        #    #ポイントを取得
+        #    myPoint = point_get(time,select_recode)
+        #    Maxpoint = point_get(select_recode,select_recode)
+        #    st.write(distance,style)
+        #    st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+        #    st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
+        #elif select_recode >= 60:
+        #    #タイム表示調整
+        #    shape_recode_m,shape_recode_s = reshape_recode(select_recode)
+        #    time_m,time_s = reshape_recode(time)
+        #    #ポイントを取得
+        #    myPoint = point_get(time,select_recode)
+        #    Maxpoint = point_get(select_recode,select_recode)
+        #    st.write(distance,style)
+        #    st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+        #    st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
+        real(select_recode,time)
     mypoint = st.number_input("目標ポイントを入力してください")
     display_btn = st.button("目標")
     if display_btn:
