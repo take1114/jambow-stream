@@ -31,7 +31,7 @@ def time_get(mp,sr):
 
 #比較する日本記録を選択
 def Select_recode_style():
-    col1,col2 = st.columns(1,1)
+    col1,col2 = st.columns(2,2)
     with col1:
         distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
     with col2:
