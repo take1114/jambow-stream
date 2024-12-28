@@ -44,7 +44,7 @@ def real(sr,t):
             myPoint = point_get(t,sr)
             Maxpoint = point_get(sr,sr)
             st.write(distance,style)
-            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+            st.write("トップ記録　:",shape_recode,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録:',t,'秒',myPoint,'ポイント')
         elif sr >= 60:
             #タイム表示調整
@@ -54,7 +54,7 @@ def real(sr,t):
             myPoint = point_get(t,sr)
             Maxpoint = point_get(sr,sr)
             st.write(distance,style)
-            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+            st.write("トップ記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 
