@@ -88,6 +88,8 @@ def target(Sr,T):
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へ至る道","マスターズの頂","チームトップ","記録更新(現在作成中)"])
+
+#フィナポイント
 with tab1:
     st.title("フィナポイント")
     st.write("日本記録表(短水路)(単位：秒)")
@@ -125,7 +127,7 @@ with tab1:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
         target(select_recode,time)
 
-
+#ジャンボウポイント
 with tab2:
     st.title("ジャンボウポイント")
     st.write("マスターズ日本記録表(短水路)(単位：秒)")
@@ -165,6 +167,7 @@ with tab2:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
         target(select_recode,time)
 
+#ツキノワグマポイント
 with tab3:
     st.title("ツキノワグマポイント")
     st.write("ツキノワグマ記録表(短水路)(単位：秒)")
@@ -200,6 +203,7 @@ with tab3:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
         target(select_recode,time)
 
+#記録更新タブ(現在作成中)
 with tab4:
     distance = st.selectbox("距離？：",('25m','50m','100m','200m','400m','800m','1500m'))
     style = st.selectbox("種目？：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
