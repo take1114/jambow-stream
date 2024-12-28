@@ -57,6 +57,37 @@ def real(sr,t):
             st.write("トップ記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
+#自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
+def target(Sr,T):
+        if Sr < 60:
+            #タイム表示調整
+            shape_recode = reshape_recode(Sr)
+            #ポイントを取得
+            myPoint = point_get(T,Sr)
+            Maxpoint = point_get(Sr,Sr)
+            #入力ポイントから当該タイムを取得
+            Z = time_get(mypoint,Sr)
+            st.write(distance,style)
+            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+            st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
+            st.write('貴方の記録:',T,'秒',myPoint,'ポイント')
+        elif Sr >= 60:
+            #ポイントを取得
+            myPoint = point_get(T,Sr)
+            Maxpoint = point_get(Sr,Sr)
+            #入力ポイントから当該タイムを取得
+            Z = time_get(mypoint,Sr)
+            #タイム表示調整
+            shape_recode_m,shape_recode_s = reshape_recode(Sr)
+            YM,YS = reshape_recode(Z)
+            time_m,time_s = reshape_recode(T)
+            #結果を表示
+            st.write(distance,style)
+            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+            st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
+            st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
+
+
 
 
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へいたる道","マスターズの頂","ツキノワグマポイント","記録更新(現在作成中)"])
@@ -87,33 +118,34 @@ with tab1:
     mypoint = st.number_input("目標ポイントを入力してください")
     display_btn = st.button("目標")
     if display_btn:
-        if select_recode < 60:
-            #タイム表示調整
-            shape_recode = reshape_recode(select_recode)
-            #ポイントを取得
-            myPoint = point_get(time,select_recode)
-            Maxpoint = point_get(select_recode,select_recode)
-            #入力ポイントから当該タイムを取得
-            Z = time_get(mypoint,select_recode)
-            st.write(distance,style)
-            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
-            st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
-            st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
-        elif select_recode >= 60:
-            #ポイントを取得
-            myPoint = point_get(time,select_recode)
-            Maxpoint = point_get(select_recode,select_recode)
-            #入力ポイントから当該タイムを取得
-            Z = time_get(mypoint,select_recode)
-            #タイム表示調整
-            shape_recode_m,shape_recode_s = reshape_recode(select_recode)
-            YM,YS = reshape_recode(Z)
-            time_m,time_s = reshape_recode(time)
-            #結果を表示
-            st.write(distance,style)
-            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
-            st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
-            st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
+        target(select_recode,time)
+        #if select_recode < 60:
+        #    #タイム表示調整
+        #    shape_recode = reshape_recode(select_recode)
+        #    #ポイントを取得
+        #    myPoint = point_get(time,select_recode)
+        #    Maxpoint = point_get(select_recode,select_recode)
+        #    #入力ポイントから当該タイムを取得
+        #    Z = time_get(mypoint,select_recode)
+        #    st.write(distance,style)
+        #    st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+        #    st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
+        #    st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
+        #elif select_recode >= 60:
+        #    #ポイントを取得
+        #    myPoint = point_get(time,select_recode)
+        #    Maxpoint = point_get(select_recode,select_recode)
+        #    #入力ポイントから当該タイムを取得
+        #    Z = time_get(mypoint,select_recode)
+        #    #タイム表示調整
+        #    shape_recode_m,shape_recode_s = reshape_recode(select_recode)
+        #    YM,YS = reshape_recode(Z)
+        #    time_m,time_s = reshape_recode(time)
+        #    #結果を表示
+        #    st.write(distance,style)
+        #    st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+        #    st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
+        #    st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 with tab2:
     st.title("個人記録表(ジャンボウポイント)")
