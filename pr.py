@@ -31,8 +31,11 @@ def time_get(mp,sr):
 
 #比較する日本記録を選択
 def Select_recode_style():
-    distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
-    style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    col1,col2 = st.columns(1,1)
+    with col1:
+        distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
+    with col2:
+        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
     return distance,style
 
 #自分の記録・ポイント、日本記録・ポイント表示
