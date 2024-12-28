@@ -200,7 +200,7 @@ with tab3:
     #選択日本記録を抽出
     select_recode = float(df3.at[distance,style])
     #持ちタイムを入力
-    time_tuki = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    time_tuki = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     result_btn = st.button("差")
     if result_btn:
         if select_recode < 60:
