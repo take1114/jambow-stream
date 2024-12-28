@@ -29,6 +29,13 @@ def time_get(mp,sr):
     Y1 = (math.floor(mytime*100))/100
     return Y1
 
+#比較する日本記録を選択
+def Select_recode_style():
+    distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
+    style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    return distance,style
+
+
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へいたる道","マスターズの頂","ツキノワグマポイント","記録更新(現在作成中)"])
 with tab1:
     st.title("個人記録表(フィナポイント)")
@@ -45,8 +52,9 @@ with tab1:
         index = ['50m','100m','200m','400m','800m','1500m'])
     st.dataframe(df1)
     #比較する日本記録を選択
-    distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
-    style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    #distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
+    #style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    distance,style = Select_recode_style()
     #選択日本記録を抽出
     select_recode = float(df1.at[distance,style])
     #持ちタイムを入力
