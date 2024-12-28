@@ -189,7 +189,7 @@ with tab3:
     #選択日本記録を抽出
     select_recode = float(df3.at[distance,style])
     #持ちタイムを入力
-    time_tuki = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    time = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
@@ -201,17 +201,17 @@ with tab3:
             #タイム表示調整
             shape_recode = reshape_recode(select_recode)
             #ポイントを取得
-            myPoint = point_get(time_tuki,select_recode)
+            myPoint = point_get(time,select_recode)
             Maxpoint = point_get(select_recode,select_recode)
             #入力ポイントから当該タイムを取得
             Z = time_get(mypoint,select_recode)
             st.write(distance,style)
             st.write("トップ記録　:",shape_recode,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
-            st.write('貴方の記録:',time_tuki,'秒',myPoint,'ポイント')
+            st.write('貴方の記録:',time,'秒',myPoint,'ポイント')
         elif select_recode >= 60:
             #ポイントを取得
-            myPoint = point_get(time_tuki,select_recode)
+            myPoint = point_get(time,select_recode)
             Maxpoint = point_get(select_recode,select_recode)
             #入力ポイントから当該タイムを取得
             Z = time_get(mypoint,select_recode)
