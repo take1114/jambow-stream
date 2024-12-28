@@ -35,8 +35,8 @@ def Select_jrecode_style():
     with col1:
         distance = st.selectbox("距離：",('50m','100m','200m','400m','800m','1500m'))
     with col2:
-        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
-    return distance,style
+        style1 = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    return distance,style1
 
 #比較するマスターズ記録を選択
 def Select_mrecode_style():
@@ -44,8 +44,8 @@ def Select_mrecode_style():
     with col1:
         distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
     with col2:
-        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
-    return distance,style
+        style2 = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM','FR','XFR','MR','XMR'))
+    return distance,style2
 
 #比較するチーム記録を選択
 def Select_trecode_style():
@@ -53,8 +53,8 @@ def Select_trecode_style():
     with col1:
         distance = st.selectbox("距離：",('25m','50m','100m','200m','400m','800m','1500m'))
     with col2:
-        style = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM'))
-    return distance,style
+        style3 = st.selectbox("種目：",('Fr','Ba','Br','Fly','IM'))
+    return distance,style3
 
 #自分の記録・ポイント、日本記録・ポイント表示
 def real(sr,t):
