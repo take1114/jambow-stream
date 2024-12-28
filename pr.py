@@ -168,10 +168,10 @@ with tab2:
     st.dataframe(df)
 
     #比較するマスターズ記録を選択
-    distance,style = Select_mrecode_style()
+    distance1,style1 = Select_mrecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df.at[distance,style])
+    select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
     time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
@@ -202,10 +202,10 @@ with tab3:
     st.dataframe(df3)
 
     #比較するteam記録を選択
-    distance,style = Select_trecode_style()
+    distance2,style2 = Select_trecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df3.at[distance,style])
+    select_recode = float(df3.at[distance2,style2])
     
     #持ちタイムを入力
     time = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
