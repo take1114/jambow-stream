@@ -125,9 +125,9 @@ def input_time():
 def input_time1():
     col1,col2 = st.columns(2)
     with col1:
-        t_m1 = st.number_input("分",min_value=0,step = 1)
+        t_m1 = st.number_input("m",min_value=0.0,step = 1)
     with col2:
-        t_s1 = st.number_input("秒",min_value=0.0,step = 0.01)
+        t_s1 = st.number_input("s",min_value=0.0,step = 0.01)
 
     total1 = t_m1*60+t_s1
     return total1
@@ -135,9 +135,9 @@ def input_time1():
 def input_time2():
     col1,col2 = st.columns(2)
     with col1:
-        t_m2 = st.number_input("分",min_value=0,step = 1)
+        t_m2 = st.number_input("M",min_value=0,step = 1)
     with col2:
-        t_s2 = st.number_input("秒",min_value=0.0,step = 0.01)
+        t_s2 = st.number_input("S",min_value=0.0,step = 0.01)
 
     total2 = t_m2*60+t_s2
     return total2
