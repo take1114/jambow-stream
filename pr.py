@@ -217,7 +217,7 @@ with tab3:
         real(select_recode,time,distance2,style2)
     
     #目標ポイント入力によりタイムを算出する
-    update_time2 = st.number_input("目標timeを入力してください")
+    update_time2 = st.number_input("目標timeを入力")
     display_btn = st.button("道標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
