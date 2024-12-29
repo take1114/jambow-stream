@@ -187,18 +187,18 @@ with tab2:
     select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    time = input_time()
+    time1 = input_time()
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time,distance1,style1)
+        real(select_recode,time1,distance1,style1)
     
     #目標ポイント入力によりタイムを算出する
     update_time1 = st.number_input("目標タイムを入力してください")
     display_btn = st.button("表示")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time,distance1,style1,update_time1)
+        target(select_recode,time1,distance1,style1,update_time1)
 
 #ツキノワグマポイント
 with tab3:
@@ -221,18 +221,18 @@ with tab3:
     select_recode = float(df3.at[distance2,style2])
     
     #持ちタイムを入力
-    time = input_time()
+    time2 = input_time()
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time,distance2,style2)
+        real(select_recode,time2,distance2,style2)
     
     #目標ポイント入力によりタイムを算出する
     update_time2 = st.number_input("目標timeを入力")
     display_btn = st.button("道標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time,distance2,style2,update_time2)
+        target(select_recode,time2,distance2,style2,update_time2)
 
 #記録更新タブ(現在作成中)
 with tab4:
