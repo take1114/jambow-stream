@@ -148,7 +148,6 @@ with tab1:
     select_recode = float(df1.at[distance,style])
 
     #持ちタイムを入力
-    #time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     time = input_time()
     result_btn = st.button("現実")
     if result_btn:
@@ -188,7 +187,7 @@ with tab2:
     select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
+    time = input_time()
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
@@ -222,7 +221,7 @@ with tab3:
     select_recode = float(df3.at[distance2,style2])
     
     #持ちタイムを入力
-    time = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    time = input_time()
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
