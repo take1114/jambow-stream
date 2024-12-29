@@ -89,7 +89,7 @@ def target(Sr,T):
             #入力ポイントから当該タイムを取得
             Z = time_get(mypoint,Sr)
             st.write(distance,style)
-            st.write("日本記録　:",shape_recode,"秒",Maxpoint,"ポイント")
+            st.write("top記録　:",shape_recode,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
             st.write('貴方の記録:',T,'秒',myPoint,'ポイント')
         elif Sr >= 60:
@@ -104,7 +104,7 @@ def target(Sr,T):
             time_m,time_s = reshape_recode(T)
             #結果を表示
             st.write(distance,style)
-            st.write("日本記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
+            st.write("top記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
