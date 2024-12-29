@@ -110,6 +110,17 @@ def target(Sr,T,d1,s1,ud_t):
             st.write("目標記録　:",YM,"分",YS,"秒",ud_p,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
+#記録の入力
+def input_time():
+    col1,col2 = st.columns(2)
+    with col1:
+        t_m = st.number_input("分",min_value=0,step = 1)
+    with col2:
+        t_s = st.number_input("秒",min_value=0.0,step = 0.01)
+
+    total = t_m*60+t_s
+    return total
+
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へ至る道","マスターズの頂","チームトップ","記録更新(現在作成中)"])
 
 #フィナポイント
@@ -137,7 +148,8 @@ with tab1:
     select_recode = float(df1.at[distance,style])
 
     #持ちタイムを入力
-    time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    #time = st.number_input("貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    time = input_time()
     result_btn = st.button("現実")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
