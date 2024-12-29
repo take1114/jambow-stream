@@ -126,7 +126,14 @@ with tab1:
                         'MR':['91.28','201.07','','','',''],
                         'XMR':['97.29','','','','','']},
         index = ['50m','100m','200m','400m','800m','1500m'])
-    st.dataframe(df1)
+    update_btn = st.button("更新")
+    if update_btn:
+        distance,style = Select_jrecode_style()
+        Time = st.number_input("更新タイムは？:(例：1分40秒32→100.32と入力すること)")
+        df1.at[distance,style] = Time
+        st.write(df1)
+    else:
+        st.dataframe(df1)
 
     #比較する日本記録を選択
     distance,style = Select_jrecode_style()
