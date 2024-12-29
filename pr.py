@@ -4,7 +4,8 @@ import math
 
 
 st.set_page_config(
-    page_title="ジャンボウサイト"
+    page_title="ジャンボウサイト",
+    page_icon=":bear:"
 )
 
 #タイム表示調整
