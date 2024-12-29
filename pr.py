@@ -57,14 +57,14 @@ def Select_trecode_style():
     return distance,style3
 
 #自分の記録・ポイント、日本記録・ポイント表示
-def real(sr,t):
+def real(sr,t,d,s):
         if sr < 60:
             #タイム表示調整
             shape_recode = reshape_recode(sr)
             #ポイントを取得
             myPoint = point_get(t,sr)
             Maxpoint = point_get(sr,sr)
-            st.write(distance,style)
+            st.write(d,s)
             st.write("トップ記録　:",shape_recode,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録:',t,'秒',myPoint,'ポイント')
         elif sr >= 60:
@@ -74,12 +74,12 @@ def real(sr,t):
             #ポイントを取得
             myPoint = point_get(t,sr)
             Maxpoint = point_get(sr,sr)
-            st.write(distance,style)
+            st.write(d,s)
             st.write("トップ記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-def target(Sr,T):
+def target(Sr,T,d1,s1):
         if Sr < 60:
             #タイム表示調整
             shape_recode = reshape_recode(Sr)
@@ -88,7 +88,7 @@ def target(Sr,T):
             Maxpoint = point_get(Sr,Sr)
             #入力ポイントから当該タイムを取得
             Z = time_get(mypoint,Sr)
-            st.write(distance,style)
+            st.write(d1,s1)
             st.write("top記録　:",shape_recode,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",Z,"秒",mypoint,"ポイント")
             st.write('貴方の記録:',T,'秒',myPoint,'ポイント')
@@ -103,7 +103,7 @@ def target(Sr,T):
             YM,YS = reshape_recode(Z)
             time_m,time_s = reshape_recode(T)
             #結果を表示
-            st.write(distance,style)
+            st.write(d1,s1)
             st.write("top記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
             st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
@@ -139,14 +139,14 @@ with tab1:
     result_btn = st.button("現実")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time)
+        real(select_recode,time,distance,style)
     
     #目標ポイント入力によりタイムを算出する
     mypoint = st.number_input("目標ポイントを入力してください")
     display_btn = st.button("目標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time)
+        target(select_recode,time,distance,style)
 
 #ジャンボウポイント
 with tab2:
@@ -178,14 +178,14 @@ with tab2:
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time)
+        real(select_recode,time,distance1,style1)
     
     #目標ポイント入力によりタイムを算出する
     mypoint = st.number_input("目標pointを入力してください")
     display_btn = st.button("表示")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time)
+        target(select_recode,time,distance1,style1)
 
 #ツキノワグマポイント
 with tab3:
@@ -212,14 +212,14 @@ with tab3:
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time)
+        real(select_recode,time,distance2,style2)
     
     #目標ポイント入力によりタイムを算出する
     mypoint = st.number_input("第1目標ポイントを入力してください")
     display_btn = st.button("道標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time)
+        target(select_recode,time,distance2,style2)
 
 #記録更新タブ(現在作成中)
 with tab4:
