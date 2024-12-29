@@ -113,7 +113,6 @@ def target(Sr,T,d1,s1,ud_t):
 #記録の入力
 def input_time():
     col1,col2 = st.columns(2)
-    st.write("貴方のタイムは？")
     with col1:
         t_m = st.number_input("分",min_value=0,step = 1)
     with col2:
@@ -121,26 +120,6 @@ def input_time():
 
     total = t_m*60+t_s
     return total
-
-def input_time1():
-    col1,col2 = st.columns(2)
-    with col1:
-        t_m1 = st.number_input("m",min_value=0.0,step = 1)
-    with col2:
-        t_s1 = st.number_input("s",min_value=0.0,step = 0.01)
-
-    total1 = t_m1*60+t_s1
-    return total1
-
-def input_time2():
-    col1,col2 = st.columns(2)
-    with col1:
-        t_m2 = st.number_input("M",min_value=0,step = 1)
-    with col2:
-        t_s2 = st.number_input("S",min_value=0.0,step = 0.01)
-
-    total2 = t_m2*60+t_s2
-    return total2
 
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へ至る道","マスターズの頂","チームトップ","記録更新(現在作成中)"])
 
@@ -150,7 +129,7 @@ with tab1:
     st.write("日本記録表(短水路)(単位：秒)")
 
     #記録表示
-    df = pd.DataFrame({'Fr':['20.95','46.22','101.29','216.87','453.78','865.95'],
+    df1 = pd.DataFrame({'Fr':['20.95','46.22','101.29','216.87','453.78','865.95'],
                         'Ba':['22.81','49.65','108.25','','',''],
                         'Br':['25.91','55.77','120.35','','',''],
                         'Fly':['22.19','49.54','106.85','','',''],
@@ -160,13 +139,13 @@ with tab1:
                         'MR':['91.28','201.07','','','',''],
                         'XMR':['97.29','','','','','']},
         index = ['50m','100m','200m','400m','800m','1500m'])
-    st.dataframe(df)
+    st.dataframe(df1)
 
     #比較する日本記録を選択
     distance,style = Select_jrecode_style()
 
     #選択日本記録を抽出
-    select_recode = float(df.at[distance,style])
+    select_recode = float(df1.at[distance,style])
 
     #持ちタイムを入力
     time = input_time()
@@ -188,7 +167,7 @@ with tab2:
     st.write("マスターズ日本記録表(短水路)(単位：秒)")
 
     #記録表示
-    df1 = pd.DataFrame({'Fr':['9.83','21.84','49.21','108.95','236.47','498.16','951.03'],
+    df = pd.DataFrame({'Fr':['9.83','21.84','49.21','108.95','236.47','498.16','951.03'],
                        'Ba':['11.44','23.95','51.63','116.01','','',''],
                        'Br':['12.01','26.58','58.13','128.28','','',''],
                        'Fly':['10.52','23.33','52.42','113.72','','',''],
@@ -199,27 +178,27 @@ with tab2:
                        'XMR':['48.39','105.63','238.78','','','','']},
         index = ['25m','50m','100m','200m','400m','800m','1500m']
         )
-    st.dataframe(df1)
+    st.dataframe(df)
 
     #比較するマスターズ記録を選択
     distance1,style1 = Select_mrecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df1.at[distance1,style1])
+    select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    time1 = input_time1()
+    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time1,distance1,style1)
+        real(select_recode,time,distance1,style1)
     
     #目標ポイント入力によりタイムを算出する
     update_time1 = st.number_input("目標タイムを入力してください")
     display_btn = st.button("表示")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time1,distance1,style1,update_time1)
+        target(select_recode,time,distance1,style1,update_time1)
 
 #ツキノワグマポイント
 with tab3:
@@ -227,33 +206,33 @@ with tab3:
     st.write("ツキノワグマ記録表(短水路)(単位：秒)")
 
     #記録表示
-    df2 = pd.DataFrame({'Fr':['11.18','23.61','51.75','139.62','','',''],
+    df3 = pd.DataFrame({'Fr':['11.18','23.61','51.75','139.62','','',''],
                         'Ba':['13.08','26.68','62.29','164.59','','',''],
                         'Br':['14.19','30.62','67.47','','','',''],
                         'Fly':['11.02','25.97','61.13','','','',''],
                         'IM':['','','62.06','145.45','','','']},
         index = ['25m','50m','100m','200m','400m','800m','1500m'])
-    st.dataframe(df2)
+    st.dataframe(df3)
 
     #比較するteam記録を選択
     distance2,style2 = Select_trecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df2.at[distance2,style2])
+    select_recode = float(df3.at[distance2,style2])
     
     #持ちタイムを入力
-    time2 = input_time2()
+    time = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
-        real(select_recode,time2,distance2,style2)
+        real(select_recode,time,distance2,style2)
     
     #目標ポイント入力によりタイムを算出する
     update_time2 = st.number_input("目標timeを入力")
     display_btn = st.button("道標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time2,distance2,style2,update_time2)
+        target(select_recode,time,distance2,style2,update_time2)
 
 #記録更新タブ(現在作成中)
 with tab4:
