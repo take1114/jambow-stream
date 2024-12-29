@@ -107,7 +107,7 @@ def target(Sr,T,d1,s1,ud_t):
             #結果を表示
             st.write(d1,s1)
             st.write("top記録　:",shape_recode_m,'分',shape_recode_s,"秒",Maxpoint,"ポイント")
-            st.write("目標記録　:",YM,"分",YS,"秒",mypoint,"ポイント")
+            st.write("目標記録　:",YM,"分",YS,"秒",ud_p,"ポイント")
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へ至る道","マスターズの頂","チームトップ","記録更新(現在作成中)"])
@@ -183,11 +183,11 @@ with tab2:
         real(select_recode,time,distance1,style1)
     
     #目標ポイント入力によりタイムを算出する
-    mypoint = st.number_input("目標pointを入力してください")
+    update_time1 = st.number_input("目標タイムを入力してください")
     display_btn = st.button("表示")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time,distance1,style1)
+        target(select_recode,time,distance1,style1,update_time1)
 
 #ツキノワグマポイント
 with tab3:
@@ -217,11 +217,11 @@ with tab3:
         real(select_recode,time,distance2,style2)
     
     #目標ポイント入力によりタイムを算出する
-    mypoint = st.number_input("第1目標ポイントを入力してください")
+    update_time2 = st.number_input("目標timeを入力してください")
     display_btn = st.button("道標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
-        target(select_recode,time,distance2,style2)
+        target(select_recode,time,distance2,style2,update_time2)
 
 #記録更新タブ(現在作成中)
 with tab4:
