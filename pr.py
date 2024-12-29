@@ -121,6 +121,26 @@ def input_time():
     total = t_m*60+t_s
     return total
 
+def input_time1():
+    col1,col2 = st.columns(2)
+    with col1:
+        t_m = st.number_input("分",min_value=0,step = 1)
+    with col2:
+        t_s = st.number_input("秒",min_value=0.0,step = 0.01)
+
+    total = t_m*60+t_s
+    return total
+
+def input_time2():
+    col1,col2 = st.columns(2)
+    with col1:
+        t_m = st.number_input("分",min_value=0,step = 1)
+    with col2:
+        t_s = st.number_input("秒",min_value=0.0,step = 0.01)
+
+    total = t_m*60+t_s
+    return total
+
 tab1,tab2,tab3,tab4 = st.tabs(["日本記録へ至る道","マスターズの頂","チームトップ","記録更新(現在作成中)"])
 
 #フィナポイント
@@ -187,7 +207,7 @@ with tab2:
     select_recode = float(df1.at[distance1,style1])
     
     #持ちタイムを入力
-    time1 = input_time()
+    time1 = input_time1()
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
@@ -221,7 +241,7 @@ with tab3:
     select_recode = float(df2.at[distance2,style2])
     
     #持ちタイムを入力
-    time2 = input_time()
+    time2 = input_time2()
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
