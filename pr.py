@@ -190,11 +190,11 @@ with tab2:
     #持ちタイムを入力
     min1,sec1 = st.columns(2)
     with min1:
-        t_m = st.number_input("分")
+        t_m1 = st.number_input("分")
     with sec1:
-        t_s = st.number_input("秒")
+        t_s1 = st.number_input("秒")
 
-    time = t_m*60+t_s
+    time = t_m1*60+t_s1
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
@@ -228,7 +228,13 @@ with tab3:
     select_recode = float(df3.at[distance2,style2])
     
     #持ちタイムを入力
-    time = st.number_input("現在の貴方のタイムは？:(例：6分42秒19→402.19と入力すること)")
+    min2,sec2 = st.columns(2)
+    with min2:
+        t_m2 = st.number_input("分")
+    with sec2:
+        t_s2 = st.number_input("秒")
+
+    time = t_m2*60+t_s2
     result_btn = st.button("差")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
