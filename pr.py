@@ -230,9 +230,9 @@ with tab3:
     #持ちタイムを入力
     min2,sec2 = st.columns(2)
     with min2:
-        t_m2 = st.number_input("分")
+        t_m2 = st.number_input("min")
     with sec2:
-        t_s2 = st.number_input("秒")
+        t_s2 = st.number_input("sec")
 
     time = t_m2*60+t_s2
     result_btn = st.button("差")
