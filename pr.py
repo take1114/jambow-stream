@@ -190,9 +190,9 @@ with tab2:
     #持ちタイムを入力
     min1,sec1 = st.columns(2)
     with min1:
-        t_m = st.number_input("分",min_value=0,step = 1)
+        t_m = st.number_input("分")
     with sec1:
-        t_s = st.number_input("秒",min_value=0.0,step = 0.01)
+        t_s = st.number_input("秒")
 
     time = t_m*60+t_s
     result_btn = st.button("結果")
