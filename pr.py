@@ -188,10 +188,10 @@ with tab2:
     select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    col1,col2 = st.columns(2)
-    with col1:
+    min1,sec1 = st.columns(2)
+    with min1:
         t_m = st.number_input("分",min_value=0,step = 1)
-    with col2:
+    with sec1:
         t_s = st.number_input("秒",min_value=0.0,step = 0.01)
 
     time = t_m*60+t_s
