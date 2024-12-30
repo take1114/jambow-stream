@@ -187,7 +187,7 @@ with tab2:
     select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
+    time = input_time()
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
