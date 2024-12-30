@@ -111,8 +111,9 @@ def target(Sr,T,d1,s1,ud_t):
             st.write('貴方の記録：',time_m,"分",time_s,'秒',myPoint,'ポイント')
 
 #記録の入力
-def input_time():
+def input_time(d,s):
     col1,col2 = st.columns(2)
+    st.write(d,s,"のタイムを入力してください")
     with col1:
         t_m = st.number_input("分",min_value=0,step = 1)
     with col2:
@@ -148,15 +149,14 @@ with tab1:
     select_recode = float(df1.at[distance,style])
 
     #持ちタイムを入力
-    time = input_time()
+    time = input_time(distance,style)
     result_btn = st.button("現実")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
         real(select_recode,time,distance,style)
     
     #目標ポイント入力によりタイムを算出する
-    st.write("目標タイムを入力してください")
-    update_time = input_time()
+    update_time = st.number_input("目標timeを入力してください")
     display_btn = st.button("目標")
     if display_btn:
         #自分の記録・ポイント、目標記録・ポイント表示、日本記録・ポイント表示
@@ -188,7 +188,7 @@ with tab2:
     select_recode = float(df.at[distance1,style1])
     
     #持ちタイムを入力
-    time = st.number_input("貴方のタイムは？:(例：1分40秒32→100.32と入力すること)")
+    time = input_time(distance1,style1)
     result_btn = st.button("結果")
     if result_btn:
         #自分の記録・ポイント、日本記録・ポイント表示
