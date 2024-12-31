@@ -192,7 +192,7 @@ with tab2:
     try:
         select_recode = float(df.at[distance1,style1])
     except ValueError:
-        st.error("選択した記録が空白です。選択し直してください")
+        st.write("選択した記録が空白です。選択し直してください")
     
     #持ちタイムを入力
     min1,sec1 = st.columns(2)
@@ -235,7 +235,7 @@ with tab3:
     try:
         select_recode = float(df3.at[distance2,style2])
     except ValueError:
-        st.error("選択した記録が空白です。選択し直してください")
+        st.write("選択した記録が空白です。選択し直してください")
     
     #持ちタイムを入力
     min2,sec2 = st.columns(2)
