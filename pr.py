@@ -149,7 +149,7 @@ with tab1:
     try:
         select_recode = float(df1.at[distance,style])
     except ValueError:
-        st.error("選択した記録が空白です。選択し直してください")
+        st.write("選択した記録が空白です。選択し直してください")
         
 
     #持ちタイムを入力
