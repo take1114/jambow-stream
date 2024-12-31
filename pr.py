@@ -146,7 +146,11 @@ with tab1:
     distance,style = Select_jrecode_style()
 
     #選択日本記録を抽出
-    select_recode = float(df1.at[distance,style])
+    try:
+        select_recode = float(df1.at[distance,style])
+    except ValueError:
+        st.error("選択した記録が空白です。選択し直してください")
+        
 
     #持ちタイムを入力
     time = input_time(distance,style)
@@ -185,7 +189,10 @@ with tab2:
     distance1,style1 = Select_mrecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df.at[distance1,style1])
+    try:
+        select_recode = float(df.at[distance1,style1])
+    except ValueError:
+        st.error("選択した記録が空白です。選択し直してください")
     
     #持ちタイムを入力
     min1,sec1 = st.columns(2)
@@ -225,7 +232,10 @@ with tab3:
     distance2,style2 = Select_trecode_style()
     
     #選択日本記録を抽出
-    select_recode = float(df3.at[distance2,style2])
+    try:
+        select_recode = float(df3.at[distance2,style2])
+    except ValueError:
+        st.error("選択した記録が空白です。選択し直してください")
     
     #持ちタイムを入力
     min2,sec2 = st.columns(2)
